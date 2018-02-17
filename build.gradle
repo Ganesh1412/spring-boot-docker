@@ -19,10 +19,10 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 // tag::plugin[]
-//apply plugin: 'docker'
+apply plugin: 'com.palantir.docker'
 // end::plugin[]
 
-apply plugin: 'com.palantir.docker'
+
 
 // This is used as the docker image prefix (org)
 group = 'springio'
