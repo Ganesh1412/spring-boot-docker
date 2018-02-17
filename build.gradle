@@ -1,5 +1,8 @@
 buildscript {
     repositories {
+     maven {
+        url "https://plugins.gradle.org/m2/"
+      }
         mavenCentral()
     }
     dependencies {
@@ -28,19 +31,6 @@ jar {
     baseName = 'spring-boot-duck'
     version =  '0.1.0'
 }
-
-// tag::task[]
-task buildDocker(type: Docker, dependsOn: build) {
-  applicationName = jar.baseName
-  dockerfile = file('Dockerfile')
-  doFirst {
-    copy {
-      from jar
-      into "${stageDir}/target"
-    }
-  }
-}
-// end::task[]
 
 
 docker {
