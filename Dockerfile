@@ -1,3 +1,4 @@
 FROM openjdk:8-jdk-alpine
 RUN "pwd"
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/root/.jenkins/workspace/sample_job/build/libs/spring-boot-docker-0.1.0.jar"]
+ADD /root/.jenkins/workspace/sample_job/build/libs/spring-boot-docker-0.1.0.jar app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
