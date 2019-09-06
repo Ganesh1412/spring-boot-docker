@@ -109,11 +109,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-	<dependency>
-    		<groupId>spring-boot-duck</groupId>
-    		<artifactId>spring-boot-duck</artifactId>
-    		<version>0.1.0-spring-boot</version>
-	</dependency>  
 <!--	<dependency>
 		<groupId>gs-spring-boot-docker</groupId>
 		<artifactId>gs-spring-boot-docker</artifactId>
