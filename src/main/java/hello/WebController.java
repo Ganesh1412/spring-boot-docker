@@ -16,6 +16,8 @@ import java.net.*;
 import org.springframework.util.MultiValueMap;
 import java.io.*;
 import org.springframework.http.MediaType;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 
 import hello.SampleResponse;
@@ -26,13 +28,20 @@ public class WebController {
         SampleResponse response = new SampleResponse();
         Random rand = new Random();
 
-	@RequestMapping(value = "/api1", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/api", method = RequestMethod.POST, consumes = "application/json")
 	public SampleResponse response_without_header(@RequestBody String message) throws URISyntaxException
 	{
+	   try{
 		String message1 = message; 
+		InetAddress ip;
+        	String hostname;
+            		ip = InetAddress.getLocalHost();
+            		hostname = ip.getHostName();
+ 
+ 
     		RestTemplate restTemplate = new RestTemplate();
      
-    		String baseUrl = "http://localhost:8084/reverse";
+    		String baseUrl = "http://Ganeshs-MacBook-Pro.local:8084/reverse";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -43,7 +52,12 @@ public class WebController {
 		response.setId(rand.nextDouble());
                 response.setMessage(result);
                 return response;
-     
+     	}catch (UnknownHostException e) {
+ 
+            e.printStackTrace();
+	    return null;
+        }
+	
  
 	}
 
